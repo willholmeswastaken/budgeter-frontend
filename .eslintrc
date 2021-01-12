@@ -1,13 +1,18 @@
 {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "extends": [
-        "plugin:shopify/esnext",
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-    ]
-}
+    "env": {
+      "browser": true,
+      "jest": true,
+      "es6": true
+    },
+    "plugins": ["import"],
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-eval": "error",
+      "import/first": "error"
+    }
+  }
