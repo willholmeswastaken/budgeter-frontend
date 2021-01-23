@@ -2,7 +2,9 @@
   "extends": [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "prettier/flowtype",
+    "prettier/react"
   ],
   "env": {
     "es6": true,
@@ -17,10 +19,7 @@
       "jsx": true
     }
   },
-  "ignorePatterns": [
-    "/node_modules/**",
-    "/build/**"
-  ],
+  "plugins": [ "prettier" ],
   "rules": {
     "no-unused-vars": [
       "warn",
@@ -30,7 +29,9 @@
       }
     ],
     "prettier/prettier": [
-      "error"
+      "error", {
+        "endOfLine": "auto"
+      }
     ]
   },
   "settings": {
