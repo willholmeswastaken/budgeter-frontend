@@ -10,6 +10,7 @@ const UtilizationCard = ({ data }) => (
     justify="between"
     gap="large"
     pad="medium"
+    height="small"
     background="white"
     round
   >
@@ -19,27 +20,27 @@ const UtilizationCard = ({ data }) => (
           {data.name}
         </Heading>
         <Text color="gray" size="small">
-          {data.allocatedValue}
+          £{data.allocatedValue}
         </Text>
       </Box>
       <Box gap="medium">
         <Box direction="row" align="center">
           <StatusBadge background="status-ok" />
           <Text color="dark-1" size="small" margin={{ left: 'xsmall' }}>
-            Used ({data.usedValue})
+            Used (£{data.usedValue})
           </Text>
         </Box>
         <Box direction="row" align="center">
           <StatusBadge background="status-unknown" />
           <Text color="dark-1" size="small" margin={{ left: 'xsmall' }}>
-            Available ({data.availableValue})
+            Available (£{data.availableValue})
           </Text>
         </Box>
       </Box>
     </Box>
     <Meter
       round
-      size="small"
+      size="xsmall"
       type="circle"
       background="light-2"
       values={[{ value: data.percent }]}
