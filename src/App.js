@@ -1,32 +1,27 @@
-import React, { useState } from 'react';
-import { Box, Grommet, ResponsiveContext } from 'grommet';
+import React from 'react';
+import { Box, Grommet } from 'grommet';
 import theme from './theme';
-import Sidebar from './components/Sidebar';
 import Header from './components/Header';
+import Overview from './pages/Overview';
 
-const App = () => {
-  const [showSidebar, setShowSidebar] = useState(false);
-  return (
-    <Grommet theme={theme}>
-      <ResponsiveContext.Consumer>
-        {(size) => (
-          <Box>
-            <Header toggleSidebar={() => setShowSidebar(!showSidebar)} />
-            <Box direction="row" flex overflow={{ horizontal: 'hidden', vertical: 'hidden' }}>
-              <Sidebar
-                showSidebar={showSidebar}
-                isSmallDisplay={size === 'small'}
-                setShowSidebar={setShowSidebar}
-              />
-              <Box flex align="center" justify="center">
-                app body
-              </Box>
-            </Box>
-          </Box>
-        )}
-      </ResponsiveContext.Consumer>
-    </Grommet>
-  );
-};
+const App = () => (
+  <Grommet theme={theme}>
+    <Box>
+      <Header />
+      <Box
+        background="light-1"
+        fill
+        direction="row"
+        flex
+        overflow={{ horizontal: 'hidden', vertical: 'hidden' }}
+        height={{ min: '100vh' }}
+      >
+        <Box flex align="top" justify="top">
+          <Overview />
+        </Box>
+      </Box>
+    </Box>
+  </Grommet>
+);
 
 export default App;
