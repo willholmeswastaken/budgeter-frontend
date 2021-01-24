@@ -3,6 +3,7 @@ import { Box, Grommet } from 'grommet';
 import theme from './theme';
 import Header from './components/Header';
 import Overview from './pages/Overview';
+import SignUp from './pages/SignUp';
 
 const App = () => (
   <Grommet theme={theme}>
@@ -17,7 +18,7 @@ const App = () => (
         height={{ min: '100vh' }}
       >
         <Box flex align="top" justify="top">
-          <Overview />
+          <SignUp />
         </Box>
       </Box>
     </Box>
