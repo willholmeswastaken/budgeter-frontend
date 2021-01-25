@@ -3,7 +3,7 @@ import React from 'react';
 import HeadlineCard from '../components/HeadlineCard';
 import UtilizationCard from '../components/UtilizationCard';
 
-const Overview = () => (
+const Home = () => (
   <Box flex={false} direction="row-responsive" wrap>
     <Box gap="large" flex="grow" margin="medium">
       <UtilizationCard />
@@ -33,4 +33,4 @@ const Overview = () => (
   </Box>
 );
 
-export default Overview;
+export default Home;

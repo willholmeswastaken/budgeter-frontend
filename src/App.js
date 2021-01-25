@@ -1,9 +1,13 @@
 import React from 'react';
 import { Box, Grommet } from 'grommet';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import theme from './theme';
+
 import Header from './components/Header';
-import Overview from './pages/Overview';
-import SignUp from './pages/SignUp';
+import Landing from './pages/Landing';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
 const App = () => (
   <Grommet theme={theme}>
@@ -18,7 +22,13 @@ const App = () => (
         height={{ min: '100vh' }}
       >
         <Box flex align="top" justify="top">
-          <SignUp />
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              <Route path="/home" component={Home} />
+              <Route component={NotFound} />
+            </Switch>
+          </BrowserRouter>
         </Box>
       </Box>
     </Box>
