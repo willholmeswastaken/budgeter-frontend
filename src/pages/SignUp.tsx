@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Allocations, Controls, Initial } from "../components/Signup";
 
-const Onboarding: React.FC = () => {
+const SignUp: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
   const onNextStep: Function = () => {
     if (activeStep === 1) {
@@ -27,4 +27,4 @@ const Onboarding: React.FC = () => {
   );
 };
 
-export default Onboarding;
+export default SignUp;

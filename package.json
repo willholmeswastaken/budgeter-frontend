@@ -13,12 +13,14 @@
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@tailwindcss/postcss7-compat": "^2.0.3",
+    "@types/react-router-dom": "^5.1.7",
     "animate.css": "^4.1.1",
     "autoprefixer": "9",
     "mobx-react": "^7.1.0",
     "postcss": "7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "web-vitals": "^1.1.0"
   },

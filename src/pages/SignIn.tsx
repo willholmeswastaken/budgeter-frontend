@@ -1,6 +1,8 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router';
+import { Constants } from '../Constants';
 
-const SignIn: React.FC = () => (
+const SignIn = (props: RouteComponentProps) => (
     <div className="flex items-center min-h-screen p-4 bg-gray-100 lg:justify-center animate__animated animate__fadeIn">
       <div
         className="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md"
@@ -61,6 +63,7 @@ const SignIn: React.FC = () => (
               <button
                 type="submit"
                 className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
+                onClick={() => props.history.push(Constants.SIGN_UP_URL)}
               >
                 Sign up
               </button>
