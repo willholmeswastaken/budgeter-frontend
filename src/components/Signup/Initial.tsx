@@ -1,9 +1,9 @@
 import React from "react";
 
 export const Initial : React.FC = () => (
-    <div className="max-w-md mx-auto">
+    <div className="max-w-md mx-auto animate__animated animate__fadeIn">
       <div className="flex items-center space-x-5">
-        <div className="block pl-2 font-semibold text-xl self-start text-gray-700">
+        <div className="block font-semibold text-xl self-start text-gray-700">
           <h2 className="leading-relaxed">Create your profile</h2>
           <p className="text-sm text-gray-500 font-normal leading-relaxed">
             Let's get to know you better!
@@ -42,7 +42,7 @@ export const Initial : React.FC = () => (
               <div className="relative focus-within:text-gray-600 text-gray-400">
                 <input
                   type="text"
-                  className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+                  className="pr-4 px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
                   placeholder="25000"
                 />
               </div>

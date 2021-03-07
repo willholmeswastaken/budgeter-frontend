@@ -1,80 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const Allocations : React.FC = () => (
-    <div className="max-w-md mx-auto">
+interface AllocationsProps {
+  monthlyIncome: number;
+}
+
+export const Allocations = (props: AllocationsProps) => {
+  const [bills, setBillsAmount] = useState(0);
+  const [spending, setSpendingAmount] = useState(0);
+  const [savings, setSavingsAmount] = useState(0);
+  const [estimatedMonthlyIncomeRemaining, setEstimatedMonthlyIncomeRemaining ] = useState(props.monthlyIncome);
+
+  return (
+    <div className="max-w-md mx-auto animate__animated animate__fadeIn">
       <div className="flex items-center space-x-5">
-        <div className="block pl-2 font-semibold text-xl self-start text-gray-700">
-          <h2 className="leading-relaxed">Create your profile</h2>
+        <div className="block font-semibold text-xl self-start text-gray-700">
+          <h2 className="leading-relaxed">Hi Will!</h2>
           <p className="text-sm text-gray-500 font-normal leading-relaxed">
-            Let's get to know you better!
+            Now let's dig into your finances a bit more!
           </p>
         </div>
       </div>
-      <div className="divide-y divide-gray-200">
-        <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+      <div className="py-8 leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7 font-semibold">
+        <div className="flex flex-col">
+          <h1>Monthly Income Left: £{estimatedMonthlyIncomeRemaining}</h1>
+        </div>
+        <div className="divide-y divide-gray-200"></div>
+        <div className="py-4 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
           <div className="flex flex-col">
-            <label className="leading-loose">Your name</label>
+            <label className="leading-loose">
+              How much are you spending on{" "}
+              <span className="font-bold">bills</span> each month?
+            </label>
             <input
-              type="text"
+              type="number"
               className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-              placeholder="Enter name..."
+              placeholder="1200"
+              onKeyUp={(event: React.KeyboardEvent<HTMLInputElement>) => {
+                  const newVal = Number((event.target as HTMLInputElement).value);
+                  setBillsAmount(newVal);
+                  setEstimatedMonthlyIncomeRemaining(props.monthlyIncome - newVal - spending - savings);
+              }}
             />
           </div>
           <div className="flex flex-col">
-            <label className="leading-loose">Your email</label>
+            <label className="leading-loose">
+              How much do you want to <span className="font-bold">spend</span>{" "}
+              each month?
+            </label>
             <input
-              type="text"
+              type="number"
               className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-              placeholder="Enter email..."
+              placeholder="833"
+              onKeyUp={(event: React.KeyboardEvent<HTMLInputElement>) => {
+                  const newVal = Number((event.target as HTMLInputElement).value);
+                  setSpendingAmount(newVal);
+                  setEstimatedMonthlyIncomeRemaining(props.monthlyIncome - newVal - bills - savings);
+              }}
             />
           </div>
           <div className="flex flex-col">
-            <label className="leading-loose">Your password</label>
+            <label className="leading-loose">
+              How much do you want to <span className="font-bold">save</span>{" "}
+              each month?
+            </label>
             <input
-              type="password"
+              type="number"
               className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-              placeholder="Enter password..."
+              placeholder="1000"
+              onKeyUp={(event: React.KeyboardEvent<HTMLInputElement>) => {
+                  const newVal = Number((event.target as HTMLInputElement).value);
+                  setSavingsAmount(newVal);
+                  setEstimatedMonthlyIncomeRemaining(props.monthlyIncome - newVal - spending - bills);
+              }}
             />
-          </div>
-          <div className="flex items-center space-x-4">
-            <div className="flex flex-col">
-              <label className="leading-loose">Monthly Income:</label>
-              <div className="relative focus-within:text-gray-600 text-gray-400">
-                <input
-                  type="text"
-                  className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-                  placeholder="25000"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <label className="leading-loose">Monthly Payday:</label>
-              <div className="relative focus-within:text-gray-600 text-gray-400">
-                <input
-                  type="text"
-                  className="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-                  placeholder="26/02/2020"
-                />
-                <div className="absolute left-3 top-2">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-);
+  );
+};
