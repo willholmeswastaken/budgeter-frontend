@@ -1,4 +1,5 @@
 import 'animate.css';
+import 'hover.css';
 import '../styles/globals.css'
 import { AppProps } from 'next/app';
 import Header from '../components/Header';
