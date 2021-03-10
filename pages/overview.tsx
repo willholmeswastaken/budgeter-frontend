@@ -16,7 +16,7 @@ const Overview = () => (
                 className="object-contain md:object-scale-down"
               />
             </a>
-            <button className="absolute bottom-70 right-0 bg-green h-8 w-8 rounded-full text-white text-2xl font-mono border-4 border-white flex justify-center items-center">+</button>
+            <button className="absolute bottom-0 right-0 bg-green h-8 w-8 rounded-full text-white text-2xl font-mono border-4 border-white flex justify-center items-center">+</button>
           </div>
           <a>New</a>
         </li>
