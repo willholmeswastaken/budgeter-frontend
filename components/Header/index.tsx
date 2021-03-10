@@ -25,7 +25,7 @@ const Header: React.FC = () => (
       <div className="lg:flex flex-grow" id="example-navbar-warning">
         <ul className="flex flex-col lg:flex-row list-none ml-auto">
           <li className="nav-item">
-            <Link href="/">
+            <Link href="/overview">
               <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                 Dashboard
               </a>

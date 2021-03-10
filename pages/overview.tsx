@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Emoji from "../components/Emoji";
 
 const Overview = () => (
@@ -16,23 +17,29 @@ const Overview = () => (
                 className="object-contain md:object-scale-down"
               />
             </a>
-            <button className="absolute bottom-0 right-0 bg-green h-8 w-8 rounded-full text-white text-2xl font-mono border-4 border-white flex justify-center items-center">+</button>
+            <button className="absolute bottom-0 right-0 bg-green h-8 w-8 rounded-full text-white text-2xl font-mono border-4 border-white flex justify-center items-center">
+              +
+            </button>
           </div>
           <a>New</a>
         </li>
         <li className="flex flex-col items-center space-y-1 my-2 ml-1">
           <div className="bg-gradient-to-tr from-green-light to-green-dark p-1 rounded-full cursor-pointer">
-            <a className="block bg-white p-1 rounded-full h-20 w-20 transform transition hover:-rotate-6">
-              <Image
-                src="/budgeter-logo.png"
-                alt="Budgeter logo"
-                height={100}
-                width={100}
-                className="object-contain md:object-scale-down"
-              />
-            </a>
+            <Link href="/account">
+              <a className="block bg-white p-1 rounded-full h-20 w-20 transform transition hover:-rotate-6">
+                <Image
+                  src="/budgeter-logo.png"
+                  alt="Budgeter logo"
+                  height={100}
+                  width={100}
+                  className="object-contain md:object-scale-down"
+                />
+              </a>
+            </Link>
           </div>
-          <a className="font-semibold">Monzo</a>
+          <Link href="/account">
+            <a className="font-semibold">Monzo</a>
+          </Link>
         </li>
       </ul>{" "}
       <div className="relative mt-5 justify-center bg-white shadow-lg rounded-lg py-2 hvr-float cursor-pointer">
